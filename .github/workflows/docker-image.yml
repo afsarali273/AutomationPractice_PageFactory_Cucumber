@@ -49,7 +49,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-        name: docker-image
+        name: dockerimage
         path: ./deployment/image/automation-image.tar  
       -
         name: Inspect
