@@ -39,7 +39,6 @@ jobs:
       - name: Docker build
         run: |
           cd ./deployment
-          docker load < docker-image.tar
           docker build -t automation-image .
           mkdir image
           docker save automation-image > ./image/automation-image.tar
