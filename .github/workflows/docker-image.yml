@@ -67,15 +67,13 @@ jobs:
       - name: Run Tests
         run: |
           cd deployment
-          pwd
-          ls -ltr
           docker load -i image/automation-image.tar
           docker network create automation_network || true
           docker pull selenium/standalone-chrome:3.141.59-20200525
           docker run --shm-size=2g -d --network automation_network --name seleniumchrome --network-alias seleniumchrome selenium/standalone-chrome:3.141.59-20200525
           docker ps
           mkdir test_results
-          docker run -e isRemoteExecution="true" --network automation_network --volume "$(pwd)"/test_results:/app/test_results --name automation automation-image --plugin json:test_results/cucumber-reports/cucumber-1.json
+          docker run -e isRemoteExecution="true" --network automation_network --volume "$(pwd)"/test_results:/app/test_results --name automation automation-image --plugin json:test_results/cucumber.json
           docker cp automation:/app/test_results/. ./test_results
       - uses: actions/upload-artifact@v2
         with:
