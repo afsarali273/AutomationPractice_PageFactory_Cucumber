@@ -26,9 +26,6 @@ jobs:
   docker:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: deployment
     steps:
       -
         name: Checkout
