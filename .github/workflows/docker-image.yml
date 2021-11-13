@@ -38,16 +38,19 @@ jobs:
         with:
           name: artifacts
           path: deployment  
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Build
-        uses: docker/build-push-action@v2
+
+      - name: Docker build
+        run: |
+          cd ./deployment
+          docker load < docker-image.tar
+          docker build -t automation-image .
+          mkdir image
+          docker save automation-image > ./image/automation-image.tar
+
+      - uses: actions/upload-artifact@v2
         with:
-          context: .
-          load: true
-          tags: automation-image:latest
+        name: docker-image
+        path: ./deployment/image/automation-image.tar  
       -
         name: Inspect
         run: |
