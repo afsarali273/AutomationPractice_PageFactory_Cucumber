@@ -24,7 +24,6 @@ jobs:
         path: deployment
 
   docker:
-    needs: artifacts
     runs-on: ubuntu-latest
     steps:
       -
