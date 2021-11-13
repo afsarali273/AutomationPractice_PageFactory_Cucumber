@@ -24,6 +24,7 @@ jobs:
         path: deployment
 
   docker:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       -
