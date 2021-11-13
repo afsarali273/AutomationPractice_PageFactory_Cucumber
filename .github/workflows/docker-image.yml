@@ -47,10 +47,7 @@ jobs:
         with:
          name: dockerimage
          path: ./deployment/image/automation-image.tar  
-      -
-        name: Inspect
-        run: |
-          docker image inspect automation-image:latest      
+         
 
   test:
     needs: docker
@@ -62,8 +59,8 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: artifacts
-          path: /deployment/image  
+          name: dockerimage
+          path: ./deployment/image/automation-image.tar    
 
       - name: Run Tests
         run: |
