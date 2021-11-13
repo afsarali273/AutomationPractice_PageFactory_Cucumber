@@ -62,7 +62,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dockerimage
-          path: ./deployment/image/automation-image.tar    
+          path: ./deployment/image    
 
       - name: Run Tests
         run: |
