@@ -1,0 +1,21 @@
+dockerize-for-test:
+  stage: dockerize-for-test
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  script:
+    - docker images
+    - df -i
+    # Build image
+    - docker build ./deployment -t automation-image
+    - mkdir image
+    - docker save automation-image > ./image/automation-image.tar
+  artifacts:
+    paths:
+      - ./image/automation-image.tar
+    expire_in: 1 day
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - api_failure

@@ -1,0 +1,11 @@
+build-jar:
+  stage: build
+  script:
+    - mvn clean package -DskipTests
+  artifacts:
+    paths:
+      - ./deployment
+    expire_in: 3 day
+  only:
+    - web
+    - schedules

@@ -1,0 +1,38 @@
+smoke_test:
+  stage: smoke_test
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+
+  before_script:
+    # pull and run docker images
+    - docker network create automation_network || true
+    # selenium
+    - docker pull selenium/standalone-chrome:3.141.59-20200525
+    - docker run --shm-size=2g -d --network automation_network --name seleniumchrome --network-alias seleniumchrome selenium/standalone-chrome:3.141.59-20200525
+    - docker ps
+    - sleep 10
+    - echo \=====exiting \[Before Script\]=====
+
+  after_script:
+    # copy over test results inside automation container if any
+    # copy over test results inside automation container if any
+    - if [[ ! -d "$CI_PROJECT_DIR/test_results" ]]; then mkdir test_results; chmod 755 reports; fi;
+    - docker cp automation:/app/test_results/. $CI_PROJECT_DIR/test_results
+    # copy over logs
+    - docker logs automation > ./test_results/automation.log || true
+  script:
+    - docker load -i ./image/automation-image.tar
+    - docker run -e isRemoteExecution="true" --network automation_network --volume "$(pwd)"/test_results:/app/test_results --name automation --mount type=volume,src=testAutomationVolume, automation-image  --plugin json:test_results/cucumber-reports/cucumber-1.json
+  artifacts:
+    when: always
+    paths:
+      - test_results
+    expire_in: 3 days
+
+  #  manual triggered pipeline from gitlab web
+  only:
+    refs:
+      - web
+      - schedules
+
