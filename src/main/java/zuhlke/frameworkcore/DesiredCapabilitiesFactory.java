@@ -11,6 +11,18 @@ public class DesiredCapabilitiesFactory {
 
 
     public static DesiredCapabilities getDesiredCapabilities(BrowserType browserType) {
+
+        if(ExecutionType.getInstance().isRemoteExecution){
+            //Remote Desired Capability
+            return getRemoteDesiredCapabilities(browserType);
+        }else {
+            //Local Desired Capabilities
+            return getLocalDesiredCapabilities(browserType);
+        }
+    }
+
+
+    private static DesiredCapabilities getLocalDesiredCapabilities(BrowserType browserType){
         switch (browserType) {
             case chrome:
                 return getChromeDesiredCapabilities();
@@ -20,6 +32,18 @@ public class DesiredCapabilitiesFactory {
                 return getEdgeDesiredCapabilities();
             case internetExplorer:
                 return getInternetExplorerDesiredCapabilities();
+            default:
+                return null;
+        }
+    }
+
+    private static DesiredCapabilities getRemoteDesiredCapabilities(BrowserType browserType){
+//       TODO:Need to add remote capabilities
+        switch (browserType) {
+            case chrome:
+                return getChromeDesiredCapabilities();
+            case firefox:
+                return getFirefoxDesiredCapabilities();
             default:
                 return null;
         }

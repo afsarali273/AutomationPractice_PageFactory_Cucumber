@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-09T08:03:59.394Z",
+        "start_timestamp": "2021-11-13T13:13:10.994Z",
         "line": 3,
         "name": "TC-001 create a new user credentials",
         "description": "",
@@ -13,7 +13,7 @@
         "steps": [
           {
             "result": {
-              "duration": 43140000000,
+              "duration": 15170000000,
               "status": "passed"
             },
             "line": 4,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 3965000000,
+              "duration": 3987000000,
               "status": "passed"
             },
             "line": 5,
@@ -37,7 +37,7 @@
           },
           {
             "result": {
-              "duration": 22458000000,
+              "duration": 15351000000,
               "status": "passed"
             },
             "line": 6,
@@ -50,7 +50,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-09T08:05:09.050Z",
+        "start_timestamp": "2021-11-13T13:13:45.870Z",
         "line": 8,
         "name": "TC-002 Sign In with newly created user credentials",
         "description": "",
@@ -60,7 +60,7 @@
         "steps": [
           {
             "result": {
-              "duration": 36000000,
+              "duration": 52000000,
               "status": "passed"
             },
             "line": 9,
@@ -72,7 +72,7 @@
           },
           {
             "result": {
-              "duration": 2842000000,
+              "duration": 3465000000,
               "status": "passed"
             },
             "line": 10,
@@ -84,7 +84,7 @@
           },
           {
             "result": {
-              "duration": 105000000,
+              "duration": 42000000,
               "status": "passed"
             },
             "line": 11,
@@ -97,7 +97,7 @@
         ]
       },
       {
-        "start_timestamp": "2020-04-09T08:05:12.037Z",
+        "start_timestamp": "2021-11-13T13:13:49.435Z",
         "line": 13,
         "name": "TC-003 Add product to Online Cart and checkout",
         "description": "",
@@ -107,7 +107,7 @@
         "steps": [
           {
             "result": {
-              "duration": 47000000,
+              "duration": 38000000,
               "status": "passed"
             },
             "line": 14,
@@ -119,7 +119,7 @@
           },
           {
             "result": {
-              "duration": 15400000000,
+              "duration": 21410000000,
               "status": "passed"
             },
             "line": 15,
@@ -131,7 +131,7 @@
           },
           {
             "result": {
-              "duration": 8788000000,
+              "duration": 13645000000,
               "status": "passed"
             },
             "line": 16,

@@ -1,3 +1,5 @@
 .idea/
 target/
 Test-output/
+./deployment
+./test_results
