@@ -49,8 +49,8 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-        name: dockerimage
-        path: ./deployment/image/automation-image.tar  
+         name: dockerimage
+         path: ./deployment/image/automation-image.tar  
       -
         name: Inspect
         run: |
