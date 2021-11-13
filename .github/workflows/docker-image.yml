@@ -69,7 +69,7 @@ jobs:
           cd deployment
           pwd
           ls -ltr
-          docker load -i ./image/automation-image.tar
+          docker load --input image/automation-image.tar
           docker network create automation_network || true
           docker pull selenium/standalone-chrome:3.141.59-20200525
           docker run --shm-size=2g -d --network automation_network --name seleniumchrome --network-alias seleniumchrome selenium/standalone-chrome:3.141.59-20200525
