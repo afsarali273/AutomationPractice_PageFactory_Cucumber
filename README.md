@@ -1,4 +1,4 @@
-# ZuhlkeAssignment
+# SampleDemoApplication
 
 **How to Run**
 
