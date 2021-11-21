@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        features = "classpath:features",
+        features = "classpath:zuhlke",
         plugin = {"pretty", "html:target/cucumber-html-report","json:cucumber.json"},
         tags = {},
         glue = "/zuhlke/stepDefinations")
